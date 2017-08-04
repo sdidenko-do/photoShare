@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		
+		<link rel="stylesheet" href="./Eat-da-burger!_files/style.css" type="text/css">
+		  <!-- Compiled and minified CSS -->
+  		<link rel="stylesheet" href="./Eat-da-burger!_files/materialize.min.css">
+
+		<link href="./Eat-da-burger!_files/css" rel="stylesheet">
+		
+		<title>Eat-da-burger!</title>
+	</head>
+	<body cz-shortcut-listen="true">
+		
+<div class="container center" id="background">
+<img src="./Eat-da-burger!_files/double_double_meal.png" id="burger-img" height="200">
+<h1 id="header">Dream-Burger!</h1>
+
+
+
+<div class="container">  
+<div class="row">
+
+  <div class="col s6">
+
+    <h3 id=""> Served: </h3>
+
+    <ul>
+        <li>
+          cheese burger
+            <form action="http://localhost:3000/1?_method=PUT" method="POST">
+              <input type="hidden" name="devour" value="true">
+              <button class="eat" type="submit">Eat!</button>
+            </form>
+          </li>
+        <li>
+          double double
+            <form action="http://localhost:3000/2?_method=PUT" method="POST">
+              <input type="hidden" name="devour" value="true">
+              <button class="eat" type="submit">Eat!</button>
+            </form>
+          </li>
+        <li>
+          vegan burger
+            <form action="http://localhost:3000/3?_method=PUT" method="POST">
+              <input type="hidden" name="devour" value="true">
+              <button class="eat" type="submit">Eat!</button>
+            </form>
+          </li>
+        <li>
+          mac and don burger
+            <form action="http://localhost:3000/9?_method=PUT" method="POST">
+              <input type="hidden" name="devour" value="true">
+              <button class="eat" type="submit">Eat!</button>
+            </form>
+          </li>
+    </ul>
+  </div>
+
+  
+
+  <div class="col s6">
+    <h3 id=""> Devoured burgers: </h3>
+
+    <ul>
+        <li>
+          animal style
+            <form action="http://localhost:3000/6?_method=PUT" method="POST">
+              <input type="hidden" name="devour" value="false">
+              <button class="eat" type="submit">I'm Full!</button>
+            </form>
+          </li>
+        <li>
+          single
+            <form action="http://localhost:3000/7?_method=PUT" method="POST">
+              <input type="hidden" name="devour" value="false">
+              <button class="eat" type="submit">I'm Full!</button>
+            </form>
+          </li>
+        <li>
+          animal style grilled onion
+            <form action="http://localhost:3000/8?_method=PUT" method="POST">
+              <input type="hidden" name="devour" value="false">
+              <button class="eat" type="submit">I'm Full!</button>
+            </form>
+          </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<div>
+  <h4 id=""> Enter your dream burger and place your order </h4>
+
+  <form class="create-update-form" action="http://localhost:3000/" method="POST">
+    
+    <div class="container">
+      <label for=""> Type Burger Name Below: </label>
+      <input type="text" id="" name="burger_name">
+    </div>
+
+    <button class="eat" type="submit">Place Order</button>
+  </form>
+  </div>
+
+
+<div id="footer"></div>
+  
+
+
+
+		<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script><script src="http://localhost:35729/livereload.js?snipver=1"></script>
+	
+</div></body></html>
