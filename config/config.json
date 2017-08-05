@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
-    "port": 8889,
-    "database": "burgers_db",
+    "password": "AAAbbb123!@#",
+    "port": 3306,
+    "database": "photoshare_local",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
@@ -22,3 +22,5 @@
     "dialect": "mysql"
   }
 }
+
+
