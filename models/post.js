@@ -1,0 +1,30 @@
+module.exports = function(sequelize, DataTypes) {
+	var post = sequelize.define("post", {
+		body: {
+			type: DataTypes.STRING,
+			allowNull: true
+		},
+		imageURL: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			validate: {
+				isUrl: true
+			}
+		} ,
+		imageName: {
+			type:DataTypes.STRING,
+			allowNull: false,
+			validate: {
+				len: [1]
+			}
+		}
+	})
+
+	post.associate = function(models) {
+		post.belongsTo(models.album, {
+			foreignKey: {
+				allowNull: false
+			}
+		})
+	}
+}
