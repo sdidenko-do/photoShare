@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
 		}
 	})
 
-/*	creator.associate = function(models){
+	creator.associate = function(models){
 		creator.hasMany(models.album, {
 			foreignKey: {
 				allowNull: false
@@ -18,6 +18,6 @@ module.exports = function(sequelize, DataTypes) {
 	}
 
 
-*/
+
 return creator 
 }
