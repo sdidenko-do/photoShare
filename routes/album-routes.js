@@ -4,10 +4,13 @@ module.exports = function(app) {
 
 	//GET route for all albums
 	var query = {};
-	if (req.query.albumId){
-		query.AlbumId = req.query.albumId
-	}
+
 	app.get("/api/album",(req, res)=>{
+
+		if (req.query.albumId){
+			query.AlbumId = req.query.albumId
+		}
+		
 		db.album.findAll({
 			where: query,
 			include: [db.album]
