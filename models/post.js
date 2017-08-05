@@ -20,11 +20,13 @@ module.exports = function(sequelize, DataTypes) {
 		}
 	})
 
-	post.associate = function(models) {
+/*	post.associate = function(models) {
 		post.belongsTo(models.album, {
 			foreignKey: {
 				allowNull: false
 			}
 		})
-	}
+	}*/
+
+	return post
 }
