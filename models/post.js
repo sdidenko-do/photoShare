@@ -17,16 +17,23 @@ module.exports = function(sequelize, DataTypes) {
 			validate: {
 				len: [1]
 			}
+		}, 
+		contributor: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			validate: {
+				len: [1]
+			}
 		}
 	})
 
-/*	post.associate = function(models) {
+	post.associate = function(models) {
 		post.belongsTo(models.album, {
 			foreignKey: {
 				allowNull: false
 			}
 		})
-	}*/
+	}
 
 	return post
 }

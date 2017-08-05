@@ -9,18 +9,21 @@ module.exports = function(sequelize, DataTypes) {
 		} 
 	})
 
-/*	album.associate = function(models) {
+	album.associate = function(models) {
 		album.hasMany(models.post, {
 			foreignKey: {
 				allowNull: false
 			}
 		})	
+	}
+
+	album.associate = function(models) {
 		album.belongsTo(models.creator, {
-			foreignKey: {
-				allowNull: false
+		foreignKey: {
+			allowNull: false
 			}
 		})
-	}*/
+	}
 
 	return album
 }
