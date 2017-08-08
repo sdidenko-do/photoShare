@@ -29,7 +29,7 @@ module.exports = function(app, passport) {
 
             return next();
         console.log('------------------------------------');
-        console.log("logging out");
+        console.log("Sorry, you can not access this page since you are currently logged out");
         console.log('------------------------------------');
         res.redirect('/signin');
 
