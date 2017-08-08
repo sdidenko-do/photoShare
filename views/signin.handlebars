@@ -1,0 +1,36 @@
+<section class="hero is-info is-bold is-fullheight">
+	<div class="hero-body">
+		<div class="container ">
+            <div class="column is-half is-offset-one-quarter">
+                <div class="card">
+                <div class="card-content">
+                    <form id="signin" name="signin" method="POST" action="signin" >
+                        <div class="field">
+                            <label for="username" class="label">Email</label>
+                            <input type="email" class="input" placeholder="email" name="username">
+                        </div>
+                        <div class="field">
+                            <label for="password" class="label">Password</label>
+                            <input type="password" class="input" placeholder="password" name="password">
+                        </div>
+                        <button class="button is-primary" type="submit">Sign In</button>
+                        {{!-- <button class="button is-info" type="" href="/signup">Signup</button> --}}
+                    </form>
+                </div>
+                <footer class="card-footer">
+                    <a class="card-footer-item" href="/signin">
+                        <span>
+                            Login
+                        </span>
+                    </a>
+                    <a class="card-footer-item" href="/signup">
+                        <span>
+                            Sign Up
+                        </span>
+                    </a>
+                </footer>
+            </div>
+            </div>
+		</div>
+	</div>
+</section>

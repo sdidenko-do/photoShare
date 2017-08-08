@@ -1,0 +1,45 @@
+<section class="hero is-warning is-bold is-fullheight">
+	<div class="hero-body">
+		<div class="container">
+            <div class="column is-half is-offset-one-quarter">
+                <div class="card">
+                <div class="card-content">
+                    <form id="signup" name="signup" action="/signup" method="POST">
+                        <div class="field">
+                            <label for="username" class="label">Username</label>
+                            <input type="text" class="input" placeholder="Username" name="username">
+                        </div>
+                        <div class="field">
+                            <label for="email" class="label">Email</label>
+                            <input type="email" class="input" placeholder="email" name="email">
+                        </div>
+                        <div class="field">
+                            <label for="password" class="label">Password</label>
+                            <input type="password" class="input" placeholder="password"  name="password">
+                        </div>
+                        <div class="field">
+                            <label for="passwordMatch" class="label">Password</label>
+                            <input type="password" class="input" placeholder="password" name="passwordMatch">
+                        </div>
+                        <button class="button is-primary" type="submit">Create User</button>
+                        {{!-- <button class="button is-info" type="" href="/signin">login</button> --}}
+
+                    </form>
+                </div>
+                {{!-- <footer class="card-footer">
+                    <a class="card-footer-item" type="submit">
+                        <span>
+                            Create User
+                        </span>
+                    </a>
+                    <a class="card-footer-item" href="/">
+                        <span>
+                            Login
+                        </span>
+                    </a>
+                </footer> --}}
+            </div>
+            </div>
+		</div>
+	</div>
+</section>
