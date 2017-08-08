@@ -1,15 +1,14 @@
 $(document).ready(function() {
-
+    console.log('------------------------------------');
+    console.log("JS READY");
+    console.log('------------------------------------');
     // $('.your-class').slick({
     //     dots: true,
     //     infinite: true,
     //     speed: 300,
-    //     slidesToShow: 3,
-    //     slidesToScroll: 1,
+    //     slidesToShow: 4,
     //     centerMode: true,
-    //     variableWidth: true,
-    //     autoplay: true,
-    //     autoplaySpeed: 3500,
+    //     variableWidth: true
     // });
 
 

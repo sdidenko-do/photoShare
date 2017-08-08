@@ -1,7 +1,9 @@
 var express = require("express");
+var passport = require('passport');
+var session = require('express-session');
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
-
+var db = require("./models");
 var port = process.env.PORT || 3000;
 
 var app = express();
@@ -20,9 +22,17 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+var authRoute = require('./routes/auth.js')(app);
+
 // Import routes and give the server access to them.
-// var routes = require("./routes");
+require('./app/config/passport/passport.js')(passport, db.creator);
+require("./routes/html-routes.js")(app);
+require("./routes/album-routes.js")(app);
+require("./routes/post-routes.js")(app);
+require("./routes/creator-routes.js")(app);
 
-app.use("/", routes);
-
-app.listen(port);
+db.sequelize.sync({ force: true }).then(function() {
+    app.listen(port, function() {
+        console.log("App listening on PORT " + port);
+    });
+});

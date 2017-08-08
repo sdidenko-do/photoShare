@@ -8,8 +8,12 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.0/css/bulma.css">
 
-	<link rel="stylesheet" href="/css/style.css" type="text/css" />
-	
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    {{!-- <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css"> --}}
+    <link rel="stylesheet" type="text/css" href="./bulma/css/bulma.css">
+    <link rel="stylesheet" type="text/css" href="./bulma/css/aside.css">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">	
 	<title>photoShare</title>
 
 	<script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
@@ -34,15 +38,28 @@
 		<a href="" class="navbar-item"></a>
 		<img src="" alt="">
 	</div>
-</nav>
-
-<section class="hero is-light is-fullheight">
-	<div class="hero-body">
-		<div class="container">
-			{{{ body }}}
+	<div class="navbar-menu">
+		<div class="navbar-end">
+			<a class="navbar-item" href="/signup">
+				SignUp
+			</a>
+			<a class="navbar-item" href="/">
+				Login
+			</a>
+			<a class="navbar-item" href="/">
+				Log Out
+			</a>
 		</div>
 	</div>
-</section>
+</nav>
+			{{{ body }}}
+
+{{!-- <section class="hero is-light is-fullheight">
+	<div class="hero-body">
+		<div class="container">
+		</div>
+	</div>
+</section> --}}
 
 
 <footer class="hero is-success">

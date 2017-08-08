@@ -2,9 +2,8 @@
     "development": {
         "username": "root",
         "password": "Eddie1127",
-        "port": 8889,
         "database": "photoShare_db",
-        "host": "127.0.0.1",
+        "host": "localhost",
         "dialect": "mysql"
     },
     "test": {
