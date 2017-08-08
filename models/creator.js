@@ -21,9 +21,7 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1, 60]
             }
         },
-        last_login: {
-            type: DataTypes.DATE
-        },
+        last_login: DataTypes.DATE,
         status: {
             type: DataTypes.ENUM('active', 'inactive'),
             defaultValue: 'active'
