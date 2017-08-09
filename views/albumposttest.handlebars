@@ -33,6 +33,12 @@
                                 <td>
                                     <button type="submit" class="btn btn-success submit-test">Find or Create this Post and Associate it with the findOrCreate album</button>
                                 </td>
+
+                                <td>
+                                    <span>Find all photos from this album</span>
+                                    <input type="text" placeholder="enter album id" id="albumId">
+                                    <button type="submit" class="btn btn-success get-test">Find all photos associated with this album</button>
+                                </td>
                             </form>
                         </tr>
                     </tbody>
@@ -46,8 +52,17 @@
     $(document).ready(function() {
     	console.log("read script")
         $(document).on("submit", ".submit-test", handleFormSubmit)
-
+        $(document).on("submit", ".get-test", handleGetTest)
         $(".submit-test").click(handleFormSubmit)
+        $(".get-test").click(handleGetTest)
+
+        function handleGetTest(event){
+            event.preventDefault()
+            let albumId = $("#albumId")
+            $.get("/api/album", {})
+        }
+
+
         function handleFormSubmit(event) {
             event.preventDefault()
             console.log("run function")
@@ -59,8 +74,7 @@
             let postContributor = $("#post-contributor").val().trim()
 
             $.post("/api/album", { 
-            	title: albumTitle, 
-            	creatorId: 1
+            	title: albumTitle
             }).then(response=>{
             	let albumId = response[0].id
             	console.log(response)

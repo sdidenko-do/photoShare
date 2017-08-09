@@ -2,18 +2,14 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-	//GET route for all albums
+	//GET route for all albums FROM current user
 	var query = {};
 
-	app.get("/api/album",(req, res)=>{
-
-		if (req.query.albumId){
-			query.AlbumId = req.query.id
-		}
-
+	app.get("/api/album/",(req, res)=>{
 		db.album.findAll({
-			where: query,
-			include: [db.post]
+			where:{
+				creatorId: req.user.id 
+			}
 		}).then(dbAlbum=>{
 			res.json(dbAlbum)
 		})
@@ -21,9 +17,9 @@ module.exports = function(app) {
 
 	//GET route for all photos for one album 
 	app.get("/api/album/:id", (req, res)=>{
-		db.album.findOne({
+		db.album.findAll({
 			where: {
-				id: req.body.id
+				id: req.params.id
 			}, 
 			include: [{
 				model: db.post
@@ -33,17 +29,10 @@ module.exports = function(app) {
 		})
 	})
 
-	//POST route to find or create a new album
-	app.post("/api/album", (req,res)=>{
-		console.log(req.body)
-		db.album.findOrCreate({
-			where:{
-				title: req.body.title
-			} ,
-			defaults: {
-				creatorId: 1 
-			}
-		}).then(dbAlbum=>{
+	//POST route to create a new album
+	app.post("/api/album/", (req,res)=>{
+		req.body.creatorId = req.user.id
+		db.album.create(req.body).then(dbAlbum=>{
 			res.json(dbAlbum)
 		})
 	})
@@ -53,7 +42,7 @@ module.exports = function(app) {
 	app.put("/api/album/:id", (req,res)=>{
 		db.album.update(req.body, {
 			where: {
-				id: req.body.id
+				id: req.params.id
 			}
 		}).then(dbAlbum=>{
 			res.json(dbAlbum)
