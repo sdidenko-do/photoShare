@@ -12,13 +12,15 @@ $(document).ready(function() {
     // });
 
 
-    // $('.top-image').slick({
-    //     slidesToShow: 1,
-    //     slidesToScroll: 1,
-    //     arrows: false,
-    //     fade: true,
-    //     asNavFor: '.your-class'
-    // });
+    $('.hero-image').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        centerMode: true,
+        asNavFor: '.your-class',
+        lazyLoad: 'ondemand',
+    });
     $('.your-class').slick({
         dots: true,
         autoplay: true,
@@ -27,10 +29,11 @@ $(document).ready(function() {
         speed: 300,
         slidesToShow: 3,
         slidesToScroll: 1,
-        // asNavFor: '.top-image',
+        asNavFor: '.hero-image',
         dots: true,
         centerMode: true,
         focusOnSelect: true,
-        variableWidth: true
+        variableWidth: true,
+        lazyLoad: 'ondemand',
     });
 });

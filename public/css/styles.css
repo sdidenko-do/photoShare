@@ -7,13 +7,38 @@ body {
 }
 
 .slick-slide img {
-    height: 200px;
+    /* height: 200px; */
+}
+
+
+/* .hero-image {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+} */
+
+
+/* .slick-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+} */
+
+.hero-image img {
+    height: 400px;
 }
 
 .carousel-card {
     margin: 30px;
+    /* margin-left: 100px; */
+    max-width: 1200px;
 }
 
-.hero-image {
+.your-class img {
     height: 200px;
 }
+
+
+/* Solution 1: remove the card and add a white border to images. */
