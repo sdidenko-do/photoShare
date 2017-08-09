@@ -49,8 +49,7 @@ module.exports = function(passport, user) {
                     var data = {
                         email: email,
                         password: userPassword,
-                        username: req.body.username,
-                        lastname: req.body.lastname
+                        username: req.body.username
                     };
 
 
@@ -64,26 +63,16 @@ module.exports = function(passport, user) {
 
                         }
 
-
                     });
                 }
-
-
             });
-
-
-
         }
-
-
-
     ));
 
     //LOCAL SIGNIN
     passport.use('local-signin', new LocalStrategy(
 
         {
-
             // by default, local strategy uses username and password, we will override with email
             usernameField: 'email',
             passwordField: 'password',
@@ -119,7 +108,6 @@ module.exports = function(passport, user) {
                 console.log("Error:", err);
 
                 return done(null, false, { message: 'Something went wrong with your Signin' });
-
 
             });
 
