@@ -2,14 +2,12 @@ var express = require("express");
 var passport = require('passport');
 var session = require('express-session');
 var bodyParser = require("body-parser");
+var cookieParser = require("cookie-parser");
 var methodOverride = require("method-override");
 var db = require("./models");
 var port = process.env.PORT || 3000;
 var app = express();
 
-// console.log('------------------------------------');
-// console.log(passport);
-// console.log('------------------------------------');
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
@@ -17,10 +15,12 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // For Passport
+app.use(cookieParser())
 app.use(session({
     secret: 'keyboard cat',
-    resave: true,
-    saveUninitialized: true
+    resave: false,
+    saveUninitialized: false
+        // cookie: { secure: true }
 })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions

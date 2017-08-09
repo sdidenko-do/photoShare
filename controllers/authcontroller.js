@@ -13,8 +13,12 @@ exports.signin = function(req, res) {
 }
 
 exports.album = function(req, res) {
+    console.log("isAuth: " + req.isAuthenticated());
+    console.log('------------------------------------');
+    console.log("USER_ID: " + JSON.stringify(req.user.id));
+    console.log('------------------------------------');
 
-    res.render('album');
+    res.render('album', req.user);
 
 }
 
