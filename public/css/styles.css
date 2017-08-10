@@ -1,44 +1,26 @@
 body {
-    background-color: #5591DD;
+    /* background-color: #5591DD; */
 }
 
-.your-class {
-    /* margin: 0 50px; */
+.brand-text {
+    font-weight: bold;
 }
 
-.slick-slide img {
-    /* height: 200px; */
-}
-
-
-/* .hero-image {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-} */
-
-
-/* .slick-list {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-} */
+.hero-image {}
 
 .hero-image img {
     height: 400px;
-}
-
-.carousel-card {
-    margin: 30px;
-    /* margin-left: 100px; */
-    max-width: 1200px;
+    border: 15px solid white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .your-class img {
     height: 200px;
+    margin: 30px;
+    border: 15px solid white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-
-/* Solution 1: remove the card and add a white border to images. */
+.slick-list {
+    overflow: hidden;
+}
