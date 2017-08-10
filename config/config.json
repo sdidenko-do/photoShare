@@ -1,8 +1,8 @@
 {
     "development": {
         "username": "root",
-        "password": "Eddie1127",
-        "database": "photoShare_db",
+        "password": "AAAbbb123!@#",
+        "database": "photoshare_local",
         "host": "localhost",
         "dialect": "mysql"
     },
