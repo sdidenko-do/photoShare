@@ -20,14 +20,15 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1, 60]
             }
-        },
-        last_login: {
-            type: DataTypes.DATE,
-        },
-        status: {
-            type: DataTypes.ENUM('active', 'inactive'),
-            defaultValue: 'active'
         }
+        // 
+        // last_login: {
+        //     type: DataTypes.DATE,
+        // },
+        // status: {
+        //     type: DataTypes.ENUM('active', 'inactive'),
+        //     defaultValue: 'active'
+        // }
     })
 
     creator.associate = function(models) {

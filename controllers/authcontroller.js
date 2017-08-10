@@ -12,10 +12,19 @@ exports.signin = function(req, res) {
 
 }
 
+exports.profile = function(req, res) {
+
+    console.log("USER_ID: " + JSON.stringify(req.user));
+    console.log('------------------------------------');
+
+    res.render('profile', req.user);
+
+}
+
 exports.album = function(req, res) {
     // console.log("isAuth: " + req.isAuthenticated());
     // console.log('------------------------------------');
-    console.log("USER_ID: " + JSON.stringify(req.user.id));
+    console.log("USER_ID: " + JSON.stringify(req.user));
     console.log('------------------------------------');
 
     res.render('album', req.user);

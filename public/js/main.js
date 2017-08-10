@@ -19,7 +19,9 @@ $(document).ready(function() {
         fade: true,
         centerMode: true,
         asNavFor: '.your-class',
+        variableWidth: true,
         lazyLoad: 'ondemand',
+        adaptiveHeight: true,
     });
     $('.your-class').slick({
         dots: true,
