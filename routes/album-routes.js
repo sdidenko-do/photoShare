@@ -58,7 +58,6 @@ module.exports = function(app) {
         })
     })
 
-
     //PUT route to update a current album
     app.put("/api/album/:id", (req, res) => {
         db.album.update(req.body, {

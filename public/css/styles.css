@@ -1,19 +1,26 @@
 body {
-    background-color: #5591DD;
+    /* background-color: #5591DD; */
 }
 
-.your-class {
-    /* margin: 0 50px; */
+.brand-text {
+    font-weight: bold;
 }
 
-.slick-slide img {
+.hero-image {}
+
+.hero-image img {
+    height: 400px;
+    border: 15px solid white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.your-class img {
     height: 200px;
-}
-
-.carousel-card {
     margin: 30px;
+    border: 15px solid white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.hero-image {
-    height: 200px;
+.slick-list {
+    overflow: hidden;
 }
