@@ -14,7 +14,7 @@ module.exports = function(app) {
     })
 
     //POST route for adding photos to album
-    app.post("/api/album/:albumId/post/", (req, res) => {
+    app.post("/api/album/post/", (req, res) => {
         db.post.create(req.body).then(addPhoto => {
             res.json(addPhoto)
         })

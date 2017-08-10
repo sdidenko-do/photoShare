@@ -33,9 +33,9 @@ module.exports = function(app) {
         })
     })
 
-    //POST route to create a new album
+    //POST route to create a new album 
     app.post("/api/album/", (req, res) => {
-        db.album.create(req.body).then(dbAlbum => {
+        db.album.create({title: "placeholder"}).then(dbAlbum => {
             db.contributors.create({
                 albumId: dbAlbum.id,
                 contributorId: req.user.id

@@ -14,7 +14,7 @@ module.exports = function(app) {
 				res.redirect("album")
 			} else {
 				db.contributors.create({
-					albumId: req.body.albumId ,
+					albumId: req.body.albumId,
 					contributorId: response.id
 				}).then(addedContributor=>{
 					res.json(addedContributor)
