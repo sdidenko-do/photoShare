@@ -18,7 +18,28 @@ exports.profile = function(req, res) {
     console.log("USER_ID: " + JSON.stringify(req.user));
     console.log('------------------------------------');
 
-    res.render('profile', req.user);
+     db.contributors.findAll({
+            where: {
+                contributorId: req.user.id
+            },
+            include: {
+                model: db.album
+            }
+        }).then(allAlbums => {
+            let albumArray = []
+            for (let value of allAlbums){
+                albumArray.push(value.dataValues)
+            }
+            let hbs = {
+                userId: req.user.id,
+                username: req.user.username,
+                albums: albumArray
+            }
+            console.log(hbs)
+            res.render('profile', hbs);
+            //need second query to get all albums for each album that this user has access to 
+        })
+
 
 }
 

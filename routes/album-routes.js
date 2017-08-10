@@ -6,6 +6,8 @@ module.exports = function(app) {
     var query = {};
 
     app.get("/api/album/", (req, res) => {
+        console.log(req.user)
+        console.log(req.body)
         db.contributors.findAll({
             where: {
                 contributorId: req.user.id
@@ -15,6 +17,7 @@ module.exports = function(app) {
             }
         }).then(allAlbums => {
             console.log(allAlbums)
+            res.json(allAlbums)
             //need second query to get all albums for each album that this user has access to 
         })
     })
@@ -33,7 +36,7 @@ module.exports = function(app) {
         })
     })
 
-    //POST route to create a new album 
+    //POST route to create a new album // move to auth controller for now 
     app.post("/api/album/", (req, res) => {
         db.album.create({title: "placeholder"}).then(dbAlbum => {
             db.contributors.create({
