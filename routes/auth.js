@@ -7,7 +7,7 @@ module.exports = function(app, passport) {
     app.get('/signin', authController.signin);
 
     app.post('/signup', passport.authenticate('local-signup', {
-            successRedirect: '/album',
+            successRedirect: '/profile',
             failureRedirect: '/signup'
         }
 
@@ -15,10 +15,12 @@ module.exports = function(app, passport) {
 
     app.get('/album', isLoggedIn, authController.album);
 
+    app.get('/profile', isLoggedIn, authController.profile);
+
     app.get('/logout', authController.logout);
 
     app.post('/signin', passport.authenticate('local-signin', {
-        successRedirect: '/album',
+        successRedirect: '/profile',
         failureRedirect: '/signin'
     }));
 
