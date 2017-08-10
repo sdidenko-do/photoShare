@@ -31,10 +31,13 @@ module.exports = function(sequelize, DataTypes) {
     })
 
     creator.associate = function(models) {
-        creator.hasMany(models.album, {
-            foreignKey: {
-                allowNull: false
-            }
+        creator.belongsToMany(models.album, {
+            through: {
+                model:"contributors",
+                constraints: false
+            },
+            foreignKey: "creatorId",
+            constraints: false 
         })
     }
 
