@@ -2,12 +2,10 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-    //GET route for all albums FROM current user
+    //GET route for all albums FROM current user // move to auth controller for now 
     var query = {};
 
     app.get("/api/album/", (req, res) => {
-        console.log(req.user)
-        console.log(req.body)
         db.contributors.findAll({
             where: {
                 contributorId: req.user.id
@@ -23,10 +21,10 @@ module.exports = function(app) {
     })
 
     //GET route for all photos for one album 
-    app.get("/api/album/:id", (req, res) => {
+    app.get("/api/album/", (req, res) => {
         db.album.findAll({
             where: {
-                id: req.params.id
+                id: req.body.id
             },
             include: [{
                 model: db.post

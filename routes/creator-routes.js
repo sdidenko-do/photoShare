@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function(app) {
 	//ADD user to existing album BY checking if EMAIL exists 
 	app.post("/api/contributor/", (req, res)=>{
-		db.creators.findOne({
+		db.creator.findOne({
 			where:{
 				email: req.body.email
 			}

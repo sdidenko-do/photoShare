@@ -20,4 +20,5 @@ module.exports = function(app) {
         })
     })
 
+    //GET route for getting all photos from one album is in album-routes
 }
