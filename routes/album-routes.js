@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-    //GET route for all albums FROM current user
+    //GET route for all albums FROM current user // move to auth controller for now 
     var query = {};
 
     app.get("/api/album/", (req, res) => {
@@ -15,15 +15,16 @@ module.exports = function(app) {
             }
         }).then(allAlbums => {
             console.log(allAlbums)
+            res.json(allAlbums)
             //need second query to get all albums for each album that this user has access to 
         })
     })
 
     //GET route for all photos for one album 
-    app.get("/api/album/:id", (req, res) => {
+    app.get("/api/album/", (req, res) => {
         db.album.findAll({
             where: {
-                id: req.params.id
+                id: req.body.id
             },
             include: [{
                 model: db.post
@@ -33,9 +34,9 @@ module.exports = function(app) {
         })
     })
 
-    //POST route to create a new album
+    //POST route to create a new album // move to auth controller for now 
     app.post("/api/album/", (req, res) => {
-        db.album.create(req.body).then(dbAlbum => {
+        db.album.create({title: "placeholder"}).then(dbAlbum => {
             db.contributors.create({
                 albumId: dbAlbum.id,
                 contributorId: req.user.id
