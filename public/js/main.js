@@ -1,16 +1,5 @@
 $(document).ready(function() {
-    console.log('------------------------------------');
     console.log("JS READY");
-    console.log('------------------------------------');
-    // $('.your-class').slick({
-    //     dots: true,
-    //     infinite: true,
-    //     speed: 300,
-    //     slidesToShow: 4,
-    //     centerMode: true,
-    //     variableWidth: true
-    // });
-
 
     $('.hero-image').slick({
         slidesToShow: 1,

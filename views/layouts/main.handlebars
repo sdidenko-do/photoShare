@@ -38,7 +38,7 @@
 
 <nav class="navbar">
 	<div class="navbar-brand">
-		<a href="" class="navbar-item">
+		<a href="/profile" class="navbar-item">
 
 			<span class="icon">
 			<i class="fa fa-camera-retro"></i>
@@ -49,18 +49,25 @@
 	</div>
 	<div class="navbar-menu">
 		<div class="navbar-end">
-			<a class="navbar-item" href="/signup">
-				SignUp
-			</a>
 
-			<a class="navbar-item"  href="/signin">
-				Login
+			{{#if userId}}
+			<a class="navbar-item has-text-danger" href="/profile">
+				{{username}}
 			</a>
 
 			<a class="navbar-item" href="/logout">
 				Log Out
 			</a>
 
+			{{else}}
+			<a class="navbar-item" href="/signup">
+				Sign Up
+			</a>
+
+			<a class="navbar-item"  href="/signin">
+				Sign In
+			</a>
+			{{/if}}
 
 		</div>
 	</div>
