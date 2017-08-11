@@ -1,13 +1,13 @@
-<section class="hero is-info is-medium is-bold">
+<section class="hero is-info is-small is-bold">
     <div class="hero-body">
         <div class="container">
                 <div class="hero-image">
-                    <img src="http://loremflickr.com/600/440/dog?random=10" alt="">
-                    <img src="http://loremflickr.com/600/440/dog?random=11" alt="">
-                    <img src="http://loremflickr.com/600/440/dog?random=12" alt="">
-                    <img src="http://loremflickr.com/600/440/dog?random=13" alt="">
-                    <img src="http://loremflickr.com/600/440/dog?random=14" alt="">
-                    <img src="http://loremflickr.com/600/440/dog?random=15" alt="">
+                    <div class=""> <img src="http://loremflickr.com/600/440/dog?random=10" alt=""> </div>
+                    <div class=""> <img src="http://loremflickr.com/600/440/dog?random=11" alt=""> </div>
+                    <div class=""> <img src="http://loremflickr.com/600/440/dog?random=12" alt=""> </div>
+                    <div class=""> <img src="http://loremflickr.com/600/440/dog?random=13" alt=""> </div>
+                    <div class=""> <img src="http://loremflickr.com/600/440/dog?random=14" alt=""> </div>
+                    <div class=""> <img src="http://loremflickr.com/600/440/dog?random=15" alt=""> </div>
                 </div>
             <div class="block">
                 <div class="your-class">
@@ -77,7 +77,7 @@
                 </div>
 
                 <div class="column is-one-quarter">
-                    <div class="card">
+                    <div class="card"> 
                         <div class="card-image">
                             <figure class="image is-4by3">
                             <img src="http://loremflickr.com/600/440/dog?random=3" alt="Image">
@@ -151,4 +151,7 @@
     </div>
 </section>
 
+{{#unless albumName}}
+    {{> album-modal}}
+{{/unless}}
 
