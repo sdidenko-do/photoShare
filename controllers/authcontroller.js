@@ -62,6 +62,7 @@ exports.album = function(req, res) {
                 username: req.user.username,
                 albumId: dbAlbum.id
             }
+
             res.render('album', hbs);
 
         })
