@@ -1,0 +1,23 @@
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+     <span class="close" id="close-modal" >&times;</span> 
+
+        <form action="/api/album/:{{albumId}}" method="PUT">
+            <div class="field content">
+                <label class="label">Enter Album Name</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Album Name" name="title">
+                </div>
+                <label class="label">Enter Cover URL</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Cover Image URL" name="albumImg">
+                </div>
+                <button class="button is-info" >Save</button>
+            </div>
+        </form>
+
+  </div>
+</div>
