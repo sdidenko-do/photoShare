@@ -62,12 +62,11 @@ exports.album = function(req, res) {
                 username: req.user.username,
                 albumId: dbAlbum.id
             }
-            console.log(hbs)
+
             res.render('album', hbs);
 
         })
     })
-
 }
 
 exports.logout = function(req, res) {

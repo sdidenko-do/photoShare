@@ -4,13 +4,13 @@ $(document).ready(function() {
     $('.hero-image').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: false,
+        arrows: true,
         fade: true,
         centerMode: true,
         asNavFor: '.your-class',
-        variableWidth: true,
+        // variableWidth: true,
         lazyLoad: 'ondemand',
-        adaptiveHeight: true,
+        // adaptiveHeight: true,
     });
     $('.your-class').slick({
         dots: true,
@@ -26,5 +26,15 @@ $(document).ready(function() {
         focusOnSelect: true,
         variableWidth: true,
         lazyLoad: 'ondemand',
+        arrows: false
     });
+});
+
+
+// $(".open-modal").on("click", function() {
+//     $(".modal").css("display", "block");
+// })
+
+$("#close-modal").on("click", function(event) {
+    $(".modal").css("display", "none");
 });
