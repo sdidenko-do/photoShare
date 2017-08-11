@@ -18,16 +18,19 @@
 
 	<script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
 	<script>
-	var client = filestack.init('A6MuEJwhOQw2pWOWHQrF6z');
+	var client = filestack.init('AZHc3BWSIR0OAF5nP0Kygz');
 
 	function showPicker() {
-		client.pick({
+		let albumId = $(".photoUpload").val().trim()
+		console.log(albumId)
+
+/*		client.pick({
 			fromSources: ['local_file_system', 'facebook', 'instagram', 'webcam'],
 			maxSize: 10 * 1024 * 1024,
 			maxFiles: 3,
 		}).then(function(result) {
 			console.log(JSON.stringify(result.filesUploaded))
-		});
+		});*/
 	}
 	</script>
 </head>
