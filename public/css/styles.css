@@ -2,11 +2,23 @@ body {
     /* background-color: #5591DD; */
 }
 
-.brand-text {
+#brand-text {
     font-weight: bold;
+    margin-left: 3px;
 }
 
-.hero-image {}
+#profile-avatar {
+    border-radius: 20px;
+    margin-top: -20px;
+}
+
+#profile-header {
+    margin-top: 20px
+}
+
+#profile-body-header {
+    margin-bottom: 70px;
+}
 
 .hero-image img {
     margin: auto;
@@ -24,16 +36,18 @@ body {
 
 .click-div {
     background-color: none;
-    padding: 0;
     border: none;
+    width: 100%;
+    background: none;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    margin: 0px;
+    padding: 0px;
 }
-
-
-/* The Modal (background) */
 
 .modal {
     display: block;
-    /* Hidden by default */
     position: fixed;
     /* Stay in place */
     z-index: 10;
@@ -52,9 +66,6 @@ body {
     /* Black w/ opacity */
 }
 
-
-/* Modal Content/Box */
-
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -62,11 +73,7 @@ body {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    /* Could be more or less, depending on screen size */
 }
-
-
-/* The Close Button */
 
 .close {
     color: #aaa;

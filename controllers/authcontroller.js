@@ -33,6 +33,7 @@ exports.profile = function(req, res) {
         let hbs = {
             userId: req.user.id,
             username: req.user.username,
+            email: req.user.email,
             albums: albumArray
         }
         console.log(hbs)
