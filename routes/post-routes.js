@@ -1,13 +1,18 @@
 var db = require("../models");
 
 module.exports = function(app) {
-    //GET route for one photo
-    app.get("/api/album/:albumId/post/:photoId", (req, res) => {
-        db.post.findOne({
+    //GET route for cover photo
+    app.get("/api/album/post/cover", (req, res) => {
+        db.album.findOne({
             where: {
-                photoId: req.body.photoId
+                id: req.body.albumId
             },
-            include: [db.album]
+            include: [{
+                model: db.post,
+                where:{
+                    id: 1
+                }
+            }]
         }).then(dbPhoto => {
             res.json(dbPhoto)
         })
@@ -20,5 +25,5 @@ module.exports = function(app) {
         })
     })
 
-    //GET route for getting all photos from one album is in album-routes
+    //GET route for getting all photos from one album is in album-routes with the route "/api/album/photos"
 }

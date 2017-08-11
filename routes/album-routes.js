@@ -21,10 +21,10 @@ module.exports = function(app) {
     })
 
     //GET route for all photos for one album 
-    app.get("/api/album/", (req, res) => {
-        db.album.findAll({
+    app.get("/api/album/photos", (req, res) => {
+        db.album.findOne({
             where: {
-                id: req.body.id
+                id: req.body.albumId
             },
             include: [{
                 model: db.post
@@ -60,10 +60,10 @@ module.exports = function(app) {
     })
 
     //PUT route to update a current album
-    app.put("/api/album/:id", (req, res) => {
+    app.put("/api/album/", (req, res) => {
         db.album.update(req.body, {
             where: {
-                id: req.params.id
+                id: req.body.albumId
             }
         }).then(dbAlbum => {
             res.json(dbAlbum)
