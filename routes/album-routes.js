@@ -36,15 +36,26 @@ module.exports = function(app) {
 
     //POST route to create a new album // move to auth controller for now 
     app.post("/api/album/", (req, res) => {
-        db.album.create({title: "placeholder"}).then(dbAlbum => {
+        db.album.create({
+            title: req.body.title,
+            albumImg: req.body.albumImg,
+            creatorName: req.user.username
+        }).then(dbAlbum => {
             db.contributors.create({
                 albumId: dbAlbum.id,
                 contributorId: req.user.id
             }).then(response => {
-                /*				db.contributors.setContributors([response])
-                				})*/
                 console.log(JSON.stringify(dbAlbum))
                 console.log("response" + JSON.stringify(response))
+                hbs = {
+                    userId: req.user.id,
+                    email: req.user.email,
+                    username: req.user.username,
+                    albumId: dbAlbum.id
+                }
+
+                res.render('album', hbs);
+
             })
         })
     })
