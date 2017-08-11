@@ -36,6 +36,7 @@ module.exports = function(app) {
 
     //POST route to create a new album // move to auth controller for now 
     app.post("/api/album/", (req, res) => {
+        console.log(req.user)
         db.album.create({
             title: req.body.title,
             albumImg: req.body.albumImg,

@@ -44,11 +44,12 @@ exports.profile = function(req, res) {
 }
 
 exports.album = function(req, res) {
-    let hbs = {}
+
         // console.log("isAuth: " + req.isAuthenticated());
         // console.log('------------------------------------');
     console.log("USER_ID: " + JSON.stringify(req.user));
     console.log('------------------------------------');
+
 }
 
 exports.logout = function(req, res) {

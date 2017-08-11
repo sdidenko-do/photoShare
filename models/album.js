@@ -6,16 +6,18 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
-        }
-    }, {
-        getterMethods:{
-            allInfo() {
-                let info = {
-                    title: this.title,
-                    creatorId: this.id,                    
-                }
-                return info
+        } , 
+        creatorName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
             }
+        },
+        albumImg: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue: "http://lorempixel.com/400/400/"
         }
     })
 
