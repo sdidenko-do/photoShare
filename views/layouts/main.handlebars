@@ -24,8 +24,10 @@
 	var client = filestack.init('AZHc3BWSIR0OAF5nP0Kygz');
 
 	function showPicker() {
-		let albumId = "{{albumId}}"
-		let contributor = "{{username}}"
+		let albumId =  "{{albumId}}"
+		let contributor = "{{username}}" 
+		console.log(contributor)
+		console.log(albumId)
 		client.pick({
 			fromSources: ['local_file_system', 'facebook', 'instagram', 'webcam'],
 			maxSize: 10 * 1024 * 1024,
@@ -41,6 +43,7 @@
 					body: "placeholder"
 				}).then(response=>{
 					console.log(response)
+					$.get(`/album/${albumId}`)				
 				})
 			}
 

@@ -16,7 +16,7 @@ module.exports = function(app) {
         }).then(allAlbums => {
             console.log(allAlbums)
             res.json(allAlbums)
-                //need second query to get all albums for each album that this user has access to 
+            //need second query to get all albums for each album that this user has access to 
         })
     })
 
@@ -29,13 +29,15 @@ module.exports = function(app) {
             },
             include: [db.post]
         }).then(dbPhoto => {
-
-            var obj = dbPhoto
-            obj.userId = req.user.id
-            obj.userId = req.user.username
-
-            console.log(dbPhoto)
-            res.render('album', dbPhoto)
+            console.log("DB PHOTO IS ====>" + JSON.stringify(dbPhoto))
+                hbs = {
+                    userId: req.user.id,
+                    email: req.user.email,
+                    username: req.user.username,
+                    albumId: dbPhoto.id,
+                    posts: dbPhoto.posts
+                }
+            res.render('album', hbs)
         })
     })
 
@@ -53,17 +55,14 @@ module.exports = function(app) {
             }).then(response => {
                 console.log(JSON.stringify(dbAlbum))
                 console.log("response" + JSON.stringify(response));
-
                 hbs = {
                     userId: req.user.id,
                     email: req.user.email,
                     username: req.user.username,
                     albumId: dbAlbum.id
                 }
+                res.render('album', hbs)
 
-                loadImages(hbs, res);
-
-                console.log("hbs::  " + JSON.stringify(hbs))
             })
         })
     })
@@ -77,13 +76,9 @@ module.exports = function(app) {
             },
             include: [db.post]
         }).then(dbPhoto => {
-            console.log(dbPhoto)
+            console.log("DB PHOTO IS ====>" + JSON.stringify(dbPhoto))
 
-            var obj = dbPhoto
-            obj.userId = hbs.userId
-
-
-            res.render('album', obj)
+            res.render('album', dbPhoto)
         })
     }
 
