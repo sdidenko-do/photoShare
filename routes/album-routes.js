@@ -16,12 +16,12 @@ module.exports = function(app) {
         }).then(allAlbums => {
             console.log(allAlbums)
             res.json(allAlbums)
-            //need second query to get all albums for each album that this user has access to 
+                //need second query to get all albums for each album that this user has access to 
         })
     })
 
     //GET route for all photos for one album 
-    app.get("/album/:id?/", (req, res) => {
+    app.get("/album/:id", (req, res) => {
         // console.log(req.params.id)
         db.album.findOne({
             where: {
@@ -30,13 +30,13 @@ module.exports = function(app) {
             include: [db.post]
         }).then(dbPhoto => {
             console.log("DB PHOTO IS ====>" + JSON.stringify(dbPhoto))
-                hbs = {
-                    userId: req.user.id,
-                    email: req.user.email,
-                    username: req.user.username,
-                    albumId: dbPhoto.id,
-                    posts: dbPhoto.posts
-                }
+            hbs = {
+                userId: req.user.id,
+                email: req.user.email,
+                username: req.user.username,
+                albumId: dbPhoto.id,
+                posts: dbPhoto.posts
+            }
             res.render('album', hbs)
         })
     })
@@ -78,7 +78,12 @@ module.exports = function(app) {
         }).then(dbPhoto => {
             console.log("DB PHOTO IS ====>" + JSON.stringify(dbPhoto))
 
-            res.render('album', dbPhoto)
+            var obj = dbPhoto
+            obj.userId = hbs.userId
+            obj.username = hbs.username
+            obj.albumId = hbs.albumId;
+
+            res.render('album', obj)
         })
     }
 

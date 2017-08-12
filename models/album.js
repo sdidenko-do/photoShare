@@ -19,10 +19,6 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: true,
             defaultValue: "http://lorempixel.com/400/400/"
         }
-        // creatorId: {
-        //     type: DataTypes.INTEGER,
-        //     references: null
-        // }
     })
 
     album.associate = function(models) {

@@ -9,7 +9,7 @@ module.exports = function(app) {
             },
             include: [{
                 model: db.post,
-                where:{
+                where: {
                     id: 1
                 }
             }]
@@ -21,7 +21,11 @@ module.exports = function(app) {
     //POST route for adding photos to album
     app.post("/api/album/post/", (req, res) => {
         db.post.create(req.body).then(addPhoto => {
-            res.json(addPhoto)
+
+            console.log('------------------------------------');
+            console.log(req);
+            console.log('------------------------------------');
+            res.render("album", addPhoto)
         })
     })
 
