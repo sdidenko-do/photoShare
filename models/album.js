@@ -22,18 +22,6 @@ module.exports = function(sequelize, DataTypes) {
     })
 
     album.associate = function(models) {
-        album.hasMany(models.post, {
-            foreignKey: {
-                allowNull: false
-            }
-        })
-    }
-
-    album.associate = function(models) {
-        album.hasMany(models.contributors)
-    }
-
-    album.associate = function(models) {
         album.belongsToMany(models.creator, {
             through: {
             	model:"contributors",
@@ -41,6 +29,12 @@ module.exports = function(sequelize, DataTypes) {
             }, 
             foreignKey: "albumId",
             constraints: false
+        })
+
+        album.hasMany(models.post, {
+            foreignKey: {
+                allowNull: false
+            }
         })
     }
 

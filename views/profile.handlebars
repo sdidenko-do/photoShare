@@ -36,26 +36,26 @@
             <div class="columns is-multiline">
 
 
-                {{#each album}}
+                {{#each albums}}
                     <div class="column is-one-quarter">
-                        <form action="/album/:{{albumId}}" method="GET">  
+                        <form action="/api/album/{{albumId}}" method="GET">  
                             <button class="click-div" type="submit">         
                                 <div class="card">
                                     <div class="card-image">
                                         <figure class="image is-4by3">
-                                        <img src="{{coverImg}}" alt="Image">
+                                        <img src="{{this.album.albumImg}}" alt="Image">
                                         </figure>
                                     </div>
                                     <div class="card-content">
                                         <div class="media">
                                             <div class="media-left">
                                                 <figure class="image is-48x48">
-                                                <img src="https://api.adorable.io/avatars/285/{{creatorName}}.png" alt="Image">
+                                                <img src="https://api.adorable.io/avatars/285/{{this.album.creatorName}}.png" alt="Image">
                                                 </figure>
                                             </div>
                                             <div class="media-content">
-                                                <p class="title is-4"> {{title}} </p>
-                                                <p class="subtitle is-6">by: {{creatorName}}</p>
+                                                <p class="title is-4"> {{this.album.title}} </p>
+                                                <p class="subtitle is-6">by: {{this.album.creatorName}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -68,102 +68,102 @@
 
 
 
-                <div class="column is-one-quarter">
-                    <form action="/album/:1" method="GET">  
-                        <button class="click-div" type="submit">         
-                            <div class="card">
-                                <div class="card-image">
-                                    <figure class="image is-4by3">
-                                    <img src="http://loremflickr.com/600/440?random=4" alt="Image">
-                                    </figure>
-                                </div>
-                                <div class="card-content">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <figure class="image is-48x48">
-                                            <img src="https://api.adorable.io/avatars/285/bill.png" alt="Image">
-                                            </figure>
-                                        </div>
-                                        <div class="media-content">
-                                            <p class="title is-4">last Birthday</p>
-                                            <p class="subtitle is-6">by: Click Swenson</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </button>
-                    </form>     
+<!--                 <div class="column is-one-quarter">
+    <form action="/album/:10" method="GET">  
+        <button class="click-div" type="submit">         
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                    <img src="http://loremflickr.com/600/440?random=4" alt="Image">
+                    </figure>
                 </div>
-
-
-                <div class="column is-one-quarter">
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                            <img src="http://loremflickr.com/600/440?random=3" alt="Image">
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-48x48">
+                            <img src="https://api.adorable.io/avatars/285/bill.png" alt="Image">
                             </figure>
                         </div>
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-left">
-                                    <figure class="image is-48x48">
-                                    <img src="https://api.adorable.io/avatars/285/ron.png" alt="Image">
-                                    </figure>
-                                </div>
-                                <div class="media-content">
-                                    <p class="title is-4">Vacation</p>
-                                    <p class="subtitle is-6">by: Ron Goldman</p>
-                                </div>
-                            </div>
+                        <div class="media-content">
+                            <p class="title is-4">last Birthday</p>
+                            <p class="subtitle is-6">by: Click Swenson</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </button>
+    </form>     
+</div>
 
-                <div class="column is-one-quarter">
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                            <img src="http://loremflickr.com/600/440?random=2" alt="Image">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-left">
-                                    <figure class="image is-48x48">
-                                    <img src="https://api.adorable.io/avatars/285/billy.png" alt="Image">
-                                    </figure>
-                                </div>
-                                <div class="media-content">
-                                    <p class="title is-4">Sunsets</p>
-                                    <p class="subtitle is-6">by: Bill clinton</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="column is-one-quarter">
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                            <img src="http://loremflickr.com/600/440?random=1" alt="Image">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-left">
-                                    <figure class="image is-48x48">
-                                    <img src="https://api.adorable.io/avatars/285/bills.png" alt="Image">
-                                    </figure>
-                                </div>
-                                <div class="media-content">
-                                    <p class="title is-4">Nature</p>
-                                    <p class="subtitle is-6">by: Jack Black</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<div class="column is-one-quarter">
+    <div class="card">
+        <div class="card-image">
+            <figure class="image is-4by3">
+            <img src="http://loremflickr.com/600/440?random=3" alt="Image">
+            </figure>
+        </div>
+        <div class="card-content">
+            <div class="media">
+                <div class="media-left">
+                    <figure class="image is-48x48">
+                    <img src="https://api.adorable.io/avatars/285/ron.png" alt="Image">
+                    </figure>
                 </div>
+                <div class="media-content">
+                    <p class="title is-4">Vacation</p>
+                    <p class="subtitle is-6">by: Ron Goldman</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="column is-one-quarter">
+    <div class="card">
+        <div class="card-image">
+            <figure class="image is-4by3">
+            <img src="http://loremflickr.com/600/440?random=2" alt="Image">
+            </figure>
+        </div>
+        <div class="card-content">
+            <div class="media">
+                <div class="media-left">
+                    <figure class="image is-48x48">
+                    <img src="https://api.adorable.io/avatars/285/billy.png" alt="Image">
+                    </figure>
+                </div>
+                <div class="media-content">
+                    <p class="title is-4">Sunsets</p>
+                    <p class="subtitle is-6">by: Bill clinton</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="column is-one-quarter">
+    <div class="card">
+        <div class="card-image">
+            <figure class="image is-4by3">
+            <img src="http://loremflickr.com/600/440?random=1" alt="Image">
+            </figure>
+        </div>
+        <div class="card-content">
+            <div class="media">
+                <div class="media-left">
+                    <figure class="image is-48x48">
+                    <img src="https://api.adorable.io/avatars/285/bills.png" alt="Image">
+                    </figure>
+                </div>
+                <div class="media-content">
+                    <p class="title is-4">Nature</p>
+                    <p class="subtitle is-6">by: Jack Black</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
 
             </div>
         </div>

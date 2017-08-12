@@ -21,22 +21,21 @@ module.exports = function(app) {
     })
 
     //GET route for all photos for one album 
-    app.get("/api/album/photos", (req, res) => {
+    app.get("/api/album/:id?", (req, res) => {
+        console.log(req.params.id)
         db.album.findOne({
             where: {
-                id: req.body.albumId
+                id: req.params.id
             },
-            include: [{
-                model: db.post
-            }]
+            include: [db.post]
         }).then(dbPhoto => {
-            res.json(dbPhoto)
+            console.log(dbPhoto)
+            res.render('dummyalbum', dbPhoto)
         })
     })
 
     //POST route to create a new album // move to auth controller for now 
-    app.post("/api/album/", (req, res) => {
-        console.log(req.user)
+    app.post("/album/", (req, res) => {
         db.album.create({
             title: req.body.title,
             albumImg: req.body.albumImg,

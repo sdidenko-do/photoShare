@@ -36,6 +36,7 @@ exports.profile = function(req, res) {
             albums: albumArray
         }
         console.log(hbs)
+        console.log(JSON.stringify(hbs.albums))
         res.render('profile', hbs);
         //need second query to get all albums for each album that this user has access to 
     })
