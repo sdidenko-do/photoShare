@@ -41,7 +41,6 @@
 					body: "placeholder"
 				}).then(response=>{
 					console.log(response)
-	/*				res.redirect("album")*/
 				})
 			}
 
@@ -112,6 +111,14 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="slick/slick.min.js"></script>
 <script type="text/javascript" src="/js/main.js"></script>
+<script type="text/javascript">
+	$(".open-modal").click(event=>{
+		$(".modal").addClass("is-active")
+	})
+	$(".modal-background").click(event=>{
+		$(".modal").removeClass("is-active")
+	})
+</script>
 	
 
 </body>

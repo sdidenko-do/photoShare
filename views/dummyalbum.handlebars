@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="nav">
+        <div class="nav-left">
+            <p class="control level">
+                <a class="button is-primary photoUpload" type="button" value="{{albumId}}" onclick="showPicker()">
+                    <span class="icon">
+                    <i class="fa fa-upload"></i>
+                    </span>
+                    <span>Upload Images</span>
+                </a>
+            </p>
+        </div>
+        <div class="nav-right">
+            <div class="nav-item">
+                <form class="field has-addons" action="/api/contributor/" method="POST">
+                    <p class="control">
+                        <input type="text" class="input" placeholder="invite by email" name="email">
+                    </p>
+                    <p class="control">
+                        <button type="submit" class="button is-primary is-bold">Invite!</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="hero is-light is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-multiline">
+
+            {{#each posts}}
+                <div class="column is-one-quarter">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                            <img src="{{this.imageURL}}" alt="Image">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+            
+            </div>
+        </div>
+    </div>
+</section>

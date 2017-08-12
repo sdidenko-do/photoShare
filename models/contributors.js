@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             references: null
         }
-        
+
     })
 
     contributors.associate = function(models) {
