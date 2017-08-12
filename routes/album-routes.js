@@ -21,7 +21,7 @@ module.exports = function(app) {
     })
 
     //GET route for all photos for one album 
-    app.get("/album/:id?", (req, res) => {
+    app.get("/album/:id?/", (req, res) => {
         // console.log(req.params.id)
         db.album.findOne({
             where: {
@@ -42,7 +42,7 @@ module.exports = function(app) {
     })
 
     //POST route to create a new album // move to auth controller for now 
-    app.post("/album/", (req, res) => {
+    app.post("/album", (req, res) => {
         db.album.create({
             title: req.body.title,
             albumImg: req.body.albumImg,
