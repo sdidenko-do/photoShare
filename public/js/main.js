@@ -30,11 +30,10 @@ $(document).ready(function() {
     });
 });
 
-
-// $(".open-modal").on("click", function() {
-//     $(".modal").css("display", "block");
-// })
-
 $("#close-modal").on("click", function(event) {
     $(".modal").css("display", "none");
+});
+
+$(".delete").on("click", function(event) {
+    $(".notification").css("display", "none");
 });
