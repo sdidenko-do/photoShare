@@ -2,8 +2,8 @@
     <div class="hero-body">
         <div class="container">
                 <div class="hero-image">
-                    {{#each post}}
-                        <div class=""> <img src="{{imageURL}}" alt=""> </div>
+                    {{#each posts}}
+                        <div class=""> <img src="{{this.imageURL}}" alt=""> </div>
                     {{/each}}
 
                     {{!-- <div class=""> <img src="http://loremflickr.com/600/440/dog?random=10" alt=""> </div>
@@ -16,8 +16,8 @@
             <div class="block">
                 <div class="your-class">
 
-                {{#each post}}
-                    <img src="{{imageURL}}" alt="">
+                {{#each posts}}
+                    <img src="{{this.imageURL}}" alt="">
                 {{/each}}
 
                     {{!-- <img src="http://loremflickr.com/600/440/dog?random=10" alt="">
@@ -47,7 +47,7 @@
         </div>
         <div class="nav-right">
             <div class="nav-item">
-                <form class="field has-addons" action="/api/contributor/" method="POST">
+                <form class="field has-addons" action="/api/contributor/{{albumId}}" method="POST">
                     <p class="control">
                         <input type="text" class="input" placeholder="invite by email" name="email">
                     </p>
@@ -65,15 +65,15 @@
         <div class="container">
             <div class="columns is-multiline">
 
-            {{#if post}}
+            {{#if posts}}
 
-                {{#each post}}
+                {{#each posts}}
 
                 <div class="column is-one-quarter">
                     <div class="card">
                         <div class="card-image">
-                            <figure class="image is-4by3">
-                            <img src="{{imageURL}}" alt="Image">
+                            <figure class="image">
+                            <img src="{{this.imageURL}}" alt="Image">
                             </figure>
                         </div>
                     </div>

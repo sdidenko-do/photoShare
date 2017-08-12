@@ -3,56 +3,55 @@
 <head>
 	<meta charset="UTF-8">
 
-	<link rel="stylesheet" type="text/css" href="slick/slick.css" />
-	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+	<link rel="stylesheet" type="text/css" href="/public/slick/slick.css" />
+	<link rel="stylesheet" type="text/css" href="/public/slick/slick-theme.css" />
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.0/css/bulma.css">
 
-    <link rel="stylesheet" type="text/css" href="slick/slick.scss" />
-    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="/public/slick/slick.scss" />
+    <link rel="stylesheet" type="text/css" href="/public/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="/public/slick/slick-theme.css" />
     {{!-- <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css"> --}}
-    <link rel="stylesheet" type="text/css" href="./bulma/css/bulma.css">
-    <link rel="stylesheet" type="text/css" href="./bulma/css/aside.css">
-    <link rel="stylesheet" type="text/css" href="./css/styles.css">	
+    <link rel="stylesheet" type="text/css" href="/public/bulma/css/bulma.css">
+    <link rel="stylesheet" type="text/css" href="/public/bulma/css/aside.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/styles.css">	
 	<title>photoShare</title>
 
 	<script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
 
+<script>
+	var client = filestack.init('AZHc3BWSIR0OAF5nP0Kygz');
 
-	
+	function showPicker() {
+		let albumId =  "{{albumId}}"
+		let contributor = "{{username}}" 
+		console.log(contributor)
+		console.log(albumId)
+		client.pick({
+			fromSources: ['local_file_system', 'facebook', 'instagram', 'webcam'],
+			maxSize: 10 * 1024 * 1024,
+			maxFiles: 3,
+		}).then(function(result) {
+			console.log(JSON.stringify(result))
+			for (let value of result.filesUploaded){
+				$.post("/api/album/post/", {
+					albumId: albumId,
+					contributor: contributor,
+					imageURL:value.url,
+					imageName:value.filename,
+					body: "placeholder"
+				}).then(response=>{
+					console.log(response)
+					$.get(`/album/${albumId}`)				
+				})
+			}
+
+		});
+	}
+	</script>
 </head>
 <body>
-	<script>
 
-
-var client = filestack.init('AMaLUTSBESumddbXcGCd0z');
-
-
-function showPicker() {
-	let albumId = "{{albumId}}"
-	let contributor = "{{username}}"
-	client.pick({
-		fromSources: ['local_file_system', 'facebook', 'instagram', 'webcam'],
-		maxSize: 10 * 1024 * 1024,
-		maxFiles: 3,
-	}).then(function(result) {
-		console.log(JSON.stringify(result))
-		for (let value of result.filesUploaded){
-			$.post("/api/album/post/", {
-				albumId: albumId,
-				contributor: contributor,
-				imageURL:value.url,
-				imageName:value.filename,
-				body: "placeholder"
-			}).then(response=>{
-				console.log(response)
-			})
-		}
-
-	});
-}
-</script>
 	
 <nav class="navbar">
 	<div class="navbar-brand">
@@ -113,8 +112,8 @@ function showPicker() {
 
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="slick/slick.min.js"></script>
-<script type="text/javascript" src="/js/main.js"></script>
+<script type="text/javascript" src="/public/slick/slick.min.js"></script>
+<script type="text/javascript" src="/public/js/main.js"></script>
 
 
 
