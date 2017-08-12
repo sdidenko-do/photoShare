@@ -16,21 +16,26 @@ module.exports = function(app) {
         }).then(allAlbums => {
             console.log(allAlbums)
             res.json(allAlbums)
-            //need second query to get all albums for each album that this user has access to 
+                //need second query to get all albums for each album that this user has access to 
         })
     })
 
     //GET route for all photos for one album 
-    app.get("/api/album/:id?", (req, res) => {
-        console.log(req.params.id)
+    app.get("/album/:id?", (req, res) => {
+        // console.log(req.params.id)
         db.album.findOne({
             where: {
                 id: req.params.id
             },
             include: [db.post]
         }).then(dbPhoto => {
+
+            var obj = dbPhoto
+            obj.userId = req.user.id
+            obj.userId = req.user.username
+
             console.log(dbPhoto)
-            res.render('dummyalbum', dbPhoto)
+            res.render('album', dbPhoto)
         })
     })
 
@@ -39,14 +44,16 @@ module.exports = function(app) {
         db.album.create({
             title: req.body.title,
             albumImg: req.body.albumImg,
-            creatorName: req.user.username
+            creatorName: req.user.username,
+            creatorId: req.user.id
         }).then(dbAlbum => {
             db.contributors.create({
                 albumId: dbAlbum.id,
                 contributorId: req.user.id
             }).then(response => {
                 console.log(JSON.stringify(dbAlbum))
-                console.log("response" + JSON.stringify(response))
+                console.log("response" + JSON.stringify(response));
+
                 hbs = {
                     userId: req.user.id,
                     email: req.user.email,
@@ -54,11 +61,32 @@ module.exports = function(app) {
                     albumId: dbAlbum.id
                 }
 
-                res.render('album', hbs);
+                loadImages(hbs, res);
 
+                console.log("hbs::  " + JSON.stringify(hbs))
             })
         })
     })
+
+
+    function loadImages(hbs, res) {
+        //GET route for all photos for one album 
+        db.album.findOne({
+            where: {
+                id: hbs.albumId
+            },
+            include: [db.post]
+        }).then(dbPhoto => {
+            console.log(dbPhoto)
+
+            var obj = dbPhoto
+            obj.userId = hbs.userId
+
+
+            res.render('album', obj)
+        })
+    }
+
 
     //POST route to add contributors to an album
     app.post("/api/album/user/", (req, res) => {

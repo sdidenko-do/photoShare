@@ -2,21 +2,26 @@ var db = require("../models");
 var exports = module.exports = {}
 
 exports.signup = function(req, res) {
+    console.log("Message: " + JSON.stringify(req.session.messages));
+    let message = req.session.messages
 
-    res.render('signup');
-
+    res.render('signup', { message });
+    req.session.messages = [];
 }
 
 exports.signin = function(req, res) {
+    console.log("Message: " + JSON.stringify(req.session.messages));
+    let message = req.session.messages
 
-    res.render('signin');
-
+    res.render('signin', { message });
+    req.session.messages = [];
 }
 
 exports.profile = function(req, res) {
 
     console.log("USER_ID: " + JSON.stringify(req.user));
     console.log('------------------------------------');
+
 
     db.contributors.findAll({
         where: {
@@ -33,6 +38,7 @@ exports.profile = function(req, res) {
         let hbs = {
             userId: req.user.id,
             username: req.user.username,
+            email: req.user.email,
             albums: albumArray
         }
         console.log(hbs)

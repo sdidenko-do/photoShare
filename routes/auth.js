@@ -7,11 +7,10 @@ module.exports = function(app, passport) {
     app.get('/signin', authController.signin);
 
     app.post('/signup', passport.authenticate('local-signup', {
-            successRedirect: '/profile',
-            failureRedirect: '/signup'
-        }
-
-    ));
+        successRedirect: '/profile',
+        failureRedirect: '/signup',
+        failureMessage: "Sorry,That email is already taken. Please use a different one"
+    }));
 
     app.get('/album', isLoggedIn, authController.album);
 
@@ -21,7 +20,8 @@ module.exports = function(app, passport) {
 
     app.post('/signin', passport.authenticate('local-signin', {
         successRedirect: '/profile',
-        failureRedirect: '/signin'
+        failureRedirect: '/signin',
+        failureMessage: "Invalid username or password"
     }));
 
     // middleware to protect album route

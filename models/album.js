@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
-        } , 
+        },
         creatorName: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -19,14 +19,19 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: true,
             defaultValue: "http://lorempixel.com/400/400/"
         }
+        // creatorId: {
+        //     type: DataTypes.INTEGER,
+        //     references: null
+        // }
     })
 
     album.associate = function(models) {
+        album.belongsTo(models.creator)
         album.belongsToMany(models.creator, {
             through: {
-            	model:"contributors",
-            	constraints: false
-            }, 
+                model: "contributors",
+                constraints: false
+            },
             foreignKey: "albumId",
             constraints: false
         })

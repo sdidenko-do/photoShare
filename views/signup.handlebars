@@ -1,6 +1,9 @@
 <section class="hero is-warning is-bold is-fullheight">
 	<div class="hero-body">
 		<div class="container">
+           {{#if message}}
+                {{> err/authError}}
+            {{/if}}
             <div class="title is-1 has-text-centered">
                 Join Us On Photo Share
             </div>

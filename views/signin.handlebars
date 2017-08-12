@@ -1,9 +1,9 @@
 <section class="hero is-info is-bold is-fullheight">
-                {{!-- <div class="title is-1 has-text-centered">
-                Welcome Back to Photo Share
-            </div> --}}
 	<div class="hero-body">
 		<div class="container ">
+            {{#if message}}
+                {{> err/authError}}
+            {{/if}}
             <div class="title is-1 has-text-centered">
                 Welcome Back to Photo Share
             </div>
