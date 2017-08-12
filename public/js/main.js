@@ -37,3 +37,10 @@ $("#close-modal").on("click", function(event) {
 $(".delete").on("click", function(event) {
     $(".notification").css("display", "none");
 });
+
+$(".open-modal").click(event => {
+    $(".modal").addClass("is-active")
+})
+$(".modal-background").click(event => {
+    $(".modal").removeClass("is-active")
+})

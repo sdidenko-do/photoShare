@@ -19,36 +19,40 @@
 
 	<script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
 
-	<script>
 
-	var client = filestack.init('AZHc3BWSIR0OAF5nP0Kygz');
-
-	function showPicker() {
-		let albumId = "{{albumId}}"
-		let contributor = "{{username}}"
-		client.pick({
-			fromSources: ['local_file_system', 'facebook', 'instagram', 'webcam'],
-			maxSize: 10 * 1024 * 1024,
-			maxFiles: 3,
-		}).then(function(result) {
-			console.log(JSON.stringify(result))
-			for (let value of result.filesUploaded){
-				$.post("/api/album/post/", {
-					albumId: albumId,
-					contributor: contributor,
-					imageURL:value.url,
-					imageName:value.filename,
-					body: "placeholder"
-				}).then(response=>{
-					console.log(response)
-				})
-			}
-
-		});
-	}
-	</script>
+	
 </head>
 <body>
+	<script>
+
+
+var client = filestack.init('AMaLUTSBESumddbXcGCd0z');
+
+
+function showPicker() {
+	let albumId = "{{albumId}}"
+	let contributor = "{{username}}"
+	client.pick({
+		fromSources: ['local_file_system', 'facebook', 'instagram', 'webcam'],
+		maxSize: 10 * 1024 * 1024,
+		maxFiles: 3,
+	}).then(function(result) {
+		console.log(JSON.stringify(result))
+		for (let value of result.filesUploaded){
+			$.post("/api/album/post/", {
+				albumId: albumId,
+				contributor: contributor,
+				imageURL:value.url,
+				imageName:value.filename,
+				body: "placeholder"
+			}).then(response=>{
+				console.log(response)
+			})
+		}
+
+	});
+}
+</script>
 	
 <nav class="navbar">
 	<div class="navbar-brand">
@@ -111,15 +115,8 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="slick/slick.min.js"></script>
 <script type="text/javascript" src="/js/main.js"></script>
-<script type="text/javascript">
-	$(".open-modal").click(event=>{
-		$(".modal").addClass("is-active")
-	})
-	$(".modal-background").click(event=>{
-		$(".modal").removeClass("is-active")
-	})
-</script>
-	
+
+
 
 </body>
 </html>

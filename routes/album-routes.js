@@ -32,9 +32,9 @@ module.exports = function(app) {
 
             var obj = dbPhoto
             obj.userId = req.user.id
-            obj.userId = req.user.username
-
-            console.log(dbPhoto)
+            obj.username = req.user.username
+            obj.albumId = req.params.id
+            console.log()
             res.render('album', dbPhoto)
         })
     })
@@ -81,7 +81,8 @@ module.exports = function(app) {
 
             var obj = dbPhoto
             obj.userId = hbs.userId
-
+            obj.username = hbs.username
+            obj.albumId = hbs.albumId;
 
             res.render('album', obj)
         })
