@@ -43,7 +43,8 @@
 					body: "placeholder"
 				}).then(response=>{
 					console.log(response)
-					$.get(`/album/${albumId}`)				
+					$.get(`/album/${albumId}`)	
+					document.location.href = window.location + `${albumId}`			
 				})
 			}
 
