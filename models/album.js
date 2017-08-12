@@ -6,30 +6,20 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
-        }
-    }, {
-        getterMethods:{
-            allInfo() {
-                let info = {
-                    title: this.title,
-                    creatorId: this.id,                    
-                }
-                return info
+        } , 
+        creatorName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
             }
+        },
+        albumImg: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue: "http://lorempixel.com/400/400/"
         }
     })
-
-    album.associate = function(models) {
-        album.hasMany(models.post, {
-            foreignKey: {
-                allowNull: false
-            }
-        })
-    }
-
-    album.associate = function(models) {
-        album.hasMany(models.contributors)
-    }
 
     album.associate = function(models) {
         album.belongsToMany(models.creator, {
@@ -39,6 +29,12 @@ module.exports = function(sequelize, DataTypes) {
             }, 
             foreignKey: "albumId",
             constraints: false
+        })
+
+        album.hasMany(models.post, {
+            foreignKey: {
+                allowNull: false
+            }
         })
     }
 

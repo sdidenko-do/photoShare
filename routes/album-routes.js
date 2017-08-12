@@ -21,30 +21,41 @@ module.exports = function(app) {
     })
 
     //GET route for all photos for one album 
-    app.get("/api/album/", (req, res) => {
-        db.album.findAll({
+    app.get("/api/album/:id?", (req, res) => {
+        console.log(req.params.id)
+        db.album.findOne({
             where: {
-                id: req.body.id
+                id: req.params.id
             },
-            include: [{
-                model: db.post
-            }]
+            include: [db.post]
         }).then(dbPhoto => {
-            res.json(dbPhoto)
+            console.log(dbPhoto)
+            res.render('dummyalbum', dbPhoto)
         })
     })
 
     //POST route to create a new album // move to auth controller for now 
-    app.post("/api/album/", (req, res) => {
-        db.album.create({title: "placeholder"}).then(dbAlbum => {
+    app.post("/album/", (req, res) => {
+        db.album.create({
+            title: req.body.title,
+            albumImg: req.body.albumImg,
+            creatorName: req.user.username
+        }).then(dbAlbum => {
             db.contributors.create({
                 albumId: dbAlbum.id,
                 contributorId: req.user.id
             }).then(response => {
-                /*				db.contributors.setContributors([response])
-                				})*/
                 console.log(JSON.stringify(dbAlbum))
                 console.log("response" + JSON.stringify(response))
+                hbs = {
+                    userId: req.user.id,
+                    email: req.user.email,
+                    username: req.user.username,
+                    albumId: dbAlbum.id
+                }
+
+                res.render('album', hbs);
+
             })
         })
     })
@@ -60,10 +71,10 @@ module.exports = function(app) {
     })
 
     //PUT route to update a current album
-    app.put("/api/album/:id", (req, res) => {
+    app.put("/api/album/", (req, res) => {
         db.album.update(req.body, {
             where: {
-                id: req.params.id
+                id: req.body.albumId
             }
         }).then(dbAlbum => {
             res.json(dbAlbum)
