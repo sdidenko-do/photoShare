@@ -4,7 +4,7 @@
   "description": "Burger app",
   "main": "server.js",
   "scripts": {
-    "test": "./node_modules/karma/bin/karma start karma.conf.js",
+    "test": "NODE_ENV=test node node_modules/lab/bin/lab -v -L -C -d",
     "start": "node server.js"
   },
   "author": "",
@@ -33,6 +33,7 @@
     "karma-jasmine": "^1.1.0",
     "karma-requirejs": "^1.1.0",
     "karma-safari-launcher": "^1.0.0",
+    "lab": "^15.1.2",
     "requirejs": "^2.3.5"
   }
 }
