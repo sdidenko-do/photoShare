@@ -1,21 +1,22 @@
 {
     "development": {
-        "username": "serg_serv",
-        "password": "Db@dm1n",
+        "username": "sergiy",
+        "password": "MyTestPass1!",
         "database": "photoshare_local",
         "host": "localhost",
         "dialect": "mysql"
     },
     "test": {
-        "username": "serg_serv,
-        "database": "database_test",
+        "username": "sergiy",
+        "password": "MyTestPass1!"
+        "database": "photoshare_local",
         "host": "127.0.0.1",
         "dialect": "mysql"
     },
     "production": {
-        "username": "serg_serv",
-        "password": null,
-        "database": "database_test",
+        "username": "sergiy",
+        "password": "MyProdPass1!",
+        "database": "photoshare_prod",
         "host": "127.0.0.1",
         "dialect": "mysql"
     }
