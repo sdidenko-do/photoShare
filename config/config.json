@@ -1,20 +1,19 @@
 {
     "development": {
-        "username": "sergiy",
-        "password": "MyTestPass1!",
+        "username": "serg_serv",
+        "password": "Db@dm1n",
         "database": "photoshare_local",
         "host": "localhost",
         "dialect": "mysql"
     },
     "test": {
-        "username": "sergiy",
-        "password": null,
+        "username": "serg_serv,
         "database": "database_test",
         "host": "127.0.0.1",
         "dialect": "mysql"
     },
     "production": {
-        "username": "sergiy",
+        "username": "serg_serv",
         "password": null,
         "database": "database_test",
         "host": "127.0.0.1",
