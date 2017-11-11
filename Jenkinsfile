@@ -25,7 +25,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                sh '~/workspace/Photoshare/deploy'
+                sh './deploy'
             }
         }
     }
