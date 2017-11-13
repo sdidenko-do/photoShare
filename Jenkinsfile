@@ -25,7 +25,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                echo ${workspace}
+                echo "${workspace}"
                 sh './deploy'
             }
         }
