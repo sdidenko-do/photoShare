@@ -8,7 +8,7 @@
     },
     "test": {
         "username": "sergiy",
-        "password": "MyTestPass1!"
+        "password": "MyTestPass1!",
         "database": "photoshare_local",
         "host": "127.0.0.1",
         "dialect": "mysql"
