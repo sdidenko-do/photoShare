@@ -25,7 +25,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                sh '/var/lib/jenkins/deploy'
+                echo ${workspace}
+                sh './deploy'
             }
         }
     }
